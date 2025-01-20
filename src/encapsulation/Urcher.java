@@ -1,3 +1,5 @@
+package encapsulation;
+
 import java.util.Scanner;
 public class Urcher {
 
@@ -28,7 +30,7 @@ public class Urcher {
         guesser = new Guesser();
         Player player1 = new Player();
         Player player2 = new Player();
-//		Player player3 = new Player();
+//		encapsulation.Player player3 = new encapsulation.Player();
 
         System.out.println("Enter the Value to Start the Game Sir");
 
@@ -65,7 +67,7 @@ public class Urcher {
 
         System.out.println("------------------------------------------------------");
 
-        System.out.println("Player 2 can now play!! Kindly Enter Your name.");
+        System.out.println("encapsulation.Player 2 can now play!! Kindly Enter Your name.");
         scan.nextLine();
         String name2 = scan.nextLine();
         player2.setName(name2);

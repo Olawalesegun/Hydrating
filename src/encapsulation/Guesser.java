@@ -1,3 +1,5 @@
+package encapsulation;
+
 public class Guesser {
 
     private int guessedNum;
