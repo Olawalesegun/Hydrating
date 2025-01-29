@@ -8,6 +8,10 @@ class Vehicle{
     public void change_gear_box(){
         System.out.println("Vehicle gear is being changed");
     }
+
+    public void drive(){
+        System.out.println("Vehicle is been driven...");
+    }
 }
 
 class Trailer extends Vehicle{
@@ -20,12 +24,14 @@ class Trailer extends Vehicle{
         super();
         System.out.println(trailerName + " fully activated");
     }
+    public void move(){
+        super.drive();
+    }
 
     @Override
     public void move_gear(){
         System.out.println("Trailer Gear is moved");
     }
-
     @Override
     public void change_gear_box(){
         System.out.println("Trailer Gears are being changed.");
