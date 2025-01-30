@@ -19,7 +19,6 @@ class Trailer extends Vehicle{
         this("Bardock");
         System.out.println("Trailer is a Vehicle, and it's been executed");
     }
-
     public Trailer(String trailerName){
         super();
         System.out.println(trailerName + " fully activated");
@@ -46,5 +45,9 @@ public class Launch4 {
     public static void main(String[] args) {
         Trailer trail = new Trailer();
         System.out.println(trail);
+        trail.move_gear();
+        trail.move();
+        trail.change_gear_box();
+
     }
 }
