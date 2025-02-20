@@ -64,17 +64,27 @@ public class QuizService {
         int score = gradeStudent(input, 1);
         stud1.setStudentGrade(score);
 
-        System.out.println("Student with the Name: " + stud1.getStudentName() + " grade is: " + stud1.getStudentGrade() );
-
         input = scan.nextLine().trim();
         stud1.answerQuestion(2, input);
+        score = gradeStudent(input, 2);
+        stud1.setStudentGrade(score);
 
         input = scan.nextLine().trim();
         stud1.answerQuestion(3, input);
+        score = gradeStudent(input, 3);
+        stud1.setStudentGrade(score);
+
         input = scan.nextLine().trim();
         stud1.answerQuestion(4, input);
+        score = gradeStudent(input, 4);
+        stud1.setStudentGrade(score);
+
         input = scan.nextLine().trim();
         stud1.answerQuestion(5, input);
+        score = gradeStudent(input, 5);
+        stud1.setStudentGrade(score);
+
+        System.out.println("Student with the Name: " + stud1.getStudentName() + " grade is: " + stud1.getStudentGrade() );
 
 
         System.out.println("Kindly enter your name for the second student");
@@ -97,7 +107,7 @@ public class QuizService {
 
     public int gradeStudent(String _studAnswer, int _num){
         String res2 = ques[_num - 1].getCorrectAnswer();
-        System.out.println(ques[_num].getCorrectAnswer());
+        System.out.println(ques[_num - 1].getCorrectAnswer());
         if(_studAnswer.equals(res2)){
             return 5;
         }else{
