@@ -59,30 +59,30 @@ public class QuizService {
         displayAllQuestion();
 //        ques1.displayQuestion();
         System.out.println("==================================");
-        input = scan.nextLine().trim();
-        stud1.answerQuestion(1, input);
-        int score = gradeStudent(input, 1);
-        stud1.setStudentGrade(score);
+//        input = scan.nextLine().trim();
+//        stud1.answerQuestion(1, input);
+//        int score = gradeStudent(input, 1);
+//        stud1.setStudentGrade(score);
+        enterAnswerToGetGrade(stud1, 1);
+        enterAnswerToGetGrade(stud1, 2);
+        enterAnswerToGetGrade(stud1, 3);
+        enterAnswerToGetGrade(stud1, 4);
+        enterAnswerToGetGrade(stud1, 5);
 
-        input = scan.nextLine().trim();
-        stud1.answerQuestion(2, input);
-        score = gradeStudent(input, 2);
-        stud1.setStudentGrade(score);
+//        input = scan.nextLine().trim();
+//        stud1.answerQuestion(3, input);
+//        score = gradeStudent(input, 3);
+//        stud1.setStudentGrade(score);
 
-        input = scan.nextLine().trim();
-        stud1.answerQuestion(3, input);
-        score = gradeStudent(input, 3);
-        stud1.setStudentGrade(score);
+//        input = scan.nextLine().trim();
+//        stud1.answerQuestion(4, input);
+//        score = gradeStudent(input, 4);
+//        stud1.setStudentGrade(score);
 
-        input = scan.nextLine().trim();
-        stud1.answerQuestion(4, input);
-        score = gradeStudent(input, 4);
-        stud1.setStudentGrade(score);
-
-        input = scan.nextLine().trim();
-        stud1.answerQuestion(5, input);
-        score = gradeStudent(input, 5);
-        stud1.setStudentGrade(score);
+//        input = scan.nextLine().trim();
+//        stud1.answerQuestion(5, input);
+//        score = gradeStudent(input, 5);
+//        stud1.setStudentGrade(score);
 
         System.out.println("Student with the Name: " + stud1.getStudentName() + " grade is: " + stud1.getStudentGrade() );
 
@@ -103,6 +103,14 @@ public class QuizService {
         System.out.println("This student One is" + status1 + status2);
 
         stud1.getAllAnswers();
+    }
+
+    public void enterAnswerToGetGrade(Student stud, int _quesNum){
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine().trim();
+        stud.answerQuestion(_quesNum, input);
+        int score = gradeStudent(input, _quesNum);
+        stud.setStudentGrade(score);
     }
 
     public int gradeStudent(String _studAnswer, int _num){
