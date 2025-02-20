@@ -9,10 +9,11 @@ public class Question {
     private String correctAnswer;
 
     private int id;
+    private static int nextId = 1;
 
-    {
-        id = id + 1;
-    }
+//    {
+//        id = id + 1;
+//    }
 
     public Question(String _ques, String _option1, String _option2, String _option3, String _option4, String answer) {
         this.question = _ques;
@@ -21,6 +22,7 @@ public class Question {
         this.option3 = _option3;
         this.option4 = _option4;
         this.correctAnswer = answer;
+        this.id = nextId++;
     }
 
     public String getCorrectAnswer(){
@@ -41,11 +43,11 @@ public class Question {
     }
 
     public String toString(){
-        return "Question" + id + ": " +
+        return "Question" + this.id + ": " +
                 this.question + " " +
-                this.option1 + " " +
-                this.option2 + " " +
-                this.option3 + " " +
-                this.option4 + " " ;
+                "a. " + this.option1 + " " +
+                "b. " + this.option2 + " " +
+                "c. " + this.option3 + " " +
+                "d. " + this.option4 + " " ;
     }
 }

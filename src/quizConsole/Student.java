@@ -16,6 +16,14 @@ public class Student {
         this.ques = new Question[5];
     }
 
+    public void setStudentGrade(int _grade){
+        this.studentGrade += _grade;
+    }
+
+    public int getStudentGrade(){
+        return this.studentGrade;
+    }
+
     public void setStudentName(String _studentName){
         this.studentName = _studentName;
     }

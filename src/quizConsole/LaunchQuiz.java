@@ -4,6 +4,6 @@ public class LaunchQuiz {
 
     public static void main(String[] args) {
         QuizService qs = new QuizService();
-        qs.PlayQuiz();
+        qs.playQuiz();
     }
 }
