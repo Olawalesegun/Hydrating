@@ -17,14 +17,22 @@ public class QuizService {
         if(questionCount < ques.length){
             ques[questionCount] = _ques;
             questionCount++;
-        }
-    }
+        }    }
 
     public void setStudent(Student _stud){
         if(studentCount < this.stud.length){
             stud[studentCount] = _stud;
             studentCount++;
         }
+    }
+    public void whoisaBetterStudent(){
+       for(int count = 0; count < stud.length; count++){
+           if(stud[count].getStudentGrade() > stud[stud.length - 1].getStudentGrade()){
+               System.out.println(stud[count].getStudentName() + " is the best Student");
+           } else {
+               System.out.println(stud[stud.length - 1].getStudentName() + " is the best Student");
+           }
+       }
     }
 
     public void displayAllQuestion(){
@@ -42,6 +50,9 @@ public class QuizService {
         Student stud1 = new Student();
         Student stud2 = new Student();
 
+        stud[0] = stud1;
+        stud[1] = stud2;
+
         Scanner scan = new Scanner(System.in);
 
         setQues(ques1);
@@ -57,52 +68,33 @@ public class QuizService {
         stud1.setStudentName(input);
         System.out.println("Kindly answer the quiz questions: ");
         displayAllQuestion();
-//        ques1.displayQuestion();
+
         System.out.println("==================================");
-//        input = scan.nextLine().trim();
-//        stud1.answerQuestion(1, input);
-//        int score = gradeStudent(input, 1);
-//        stud1.setStudentGrade(score);
+
         enterAnswerToGetGrade(stud1, 1);
         enterAnswerToGetGrade(stud1, 2);
         enterAnswerToGetGrade(stud1, 3);
         enterAnswerToGetGrade(stud1, 4);
         enterAnswerToGetGrade(stud1, 5);
 
-//        input = scan.nextLine().trim();
-//        stud1.answerQuestion(3, input);
-//        score = gradeStudent(input, 3);
-//        stud1.setStudentGrade(score);
-
-//        input = scan.nextLine().trim();
-//        stud1.answerQuestion(4, input);
-//        score = gradeStudent(input, 4);
-//        stud1.setStudentGrade(score);
-
-//        input = scan.nextLine().trim();
-//        stud1.answerQuestion(5, input);
-//        score = gradeStudent(input, 5);
-//        stud1.setStudentGrade(score);
-
         System.out.println("Student with the Name: " + stud1.getStudentName() + " grade is: " + stud1.getStudentGrade() );
 
-
-        System.out.println("Kindly enter your name for the second student");
+        System.out.println("==================================");
+        System.out.println("It's time for the next Student" + "\n" + "Kindly enter your name for the second student");
         String input2 = scan.nextLine().trim();
         stud2.setStudentName(input2);
+        displayAllQuestion();
         System.out.println("==================================");
 
-        ques1.displayQuestion();
-        ques2.displayQuestion();
+        enterAnswerToGetGrade(stud2, 1);
+        enterAnswerToGetGrade(stud2, 2);
+        enterAnswerToGetGrade(stud2, 3);
+        enterAnswerToGetGrade(stud2, 4);
+        enterAnswerToGetGrade(stud2, 5);
 
-        stud1.answerQuestion(1, "One");
-        stud1.answerQuestion(2, "Two");
-        boolean status1 = confirmAnswer(stud1.getAnswer(1), ques1.getCorrectAnswer());
-        stud1.answerQuestion(2, "Two");
-        boolean status2 = confirmAnswer(stud1.getAnswer(2), ques2.getCorrectAnswer());
-        System.out.println("This student One is" + status1 + status2);
+        System.out.println("Student with the Name: "  + stud2.getStudentName() + " grade is: " + stud2.getStudentGrade());
 
-        stud1.getAllAnswers();
+        whoisaBetterStudent();
     }
 
     public void enterAnswerToGetGrade(Student stud, int _quesNum){
