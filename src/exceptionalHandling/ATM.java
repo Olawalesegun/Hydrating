@@ -20,8 +20,8 @@ public class ATM {
     private String accountNum = "";
     private String password;
 
-    public void enter_details(){
-        Scanner sc = new Scanner(System.in);
+    public void enter_details(Scanner sc){
+        sc = new Scanner(System.in);
         System.out.println("Enter your 10 digit");
         accountNum = sc.nextLine();
 
@@ -34,8 +34,37 @@ public class ATM {
             throw new LengthNotEqualException("You have inputted incorrect length of account");
         }
 
-        if(accountNum.equals(userAcc)){
+        if(!accountNum.equals(userAcc)){
             throw new NotSameAccountException("This account does not exist on our server");
         }
+    }
+
+    public void launchAtm(){
+        Scanner sc = new Scanner(System.in);
+        try{
+            enter_details(sc);
+            verify();
+            System.out.println("Login successful");
+        } catch (Exception e) {
+            System.out.println("Wrong Details entered, you have one more attempt.");
+            try{
+//                System.out.println("Wrong details entered");
+                enter_details(sc);
+                verify();
+                System.out.println("Congratulations::Now::Logged::IN");
+            } catch(Exception ef){
+                System.out.println(ef.getMessage());
+                System.out.println("Account::Blocked");
+            }
+
+        }
+        finally {
+            sc.close();
+        }
+    }
+
+    public static void main(String[] args) {
+        ATM atm = new ATM();
+        atm.launchAtm();
     }
 }
