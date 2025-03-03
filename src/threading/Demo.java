@@ -37,11 +37,14 @@ public class Demo {
 
     public void run_demo(){
 
-        System.out.println("Activity Two Activated");
-        for (int i = 0; i < 5; i++){
-            System.out.println(i);
-        }
-        System.out.println("Activity Two Ended");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Activity One Activated");
+        System.out.println("Kindly enter your first name");
+        sc.nextLine();
+
+        System.out.println("Activity One Ended");
+        System.out.println("=============================");
 
         System.out.println("Activity Two Activated");
         for (int i = 0; i < 5; i++){
