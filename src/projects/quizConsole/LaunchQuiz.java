@@ -1,4 +1,4 @@
-package quizConsole;
+package projects.quizConsole;
 
 public class LaunchQuiz {
 

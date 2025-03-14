@@ -1,4 +1,4 @@
-package quizConsole;
+package projects.quizConsole;
 
 import java.util.Scanner;
 
