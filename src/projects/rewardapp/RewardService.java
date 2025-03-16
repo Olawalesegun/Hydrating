@@ -11,15 +11,14 @@ import java.util.Scanner;
 public class RewardService {
 
     public ArrayList<User> users = new ArrayList<User>();
+    User user = new User();
 
     enum Categories {
         ELECTRONICS, GROCERY, CLOTHING, NONE
     }
 
     public void createUser() {
-        User user = new User();
-        Scanner scn = new Scanner(System.in);
-        try (scn) {
+        try (Scanner scn = new Scanner(System.in)) {
             System.out.println("Kindly enter your first name");
             String _firstName = scn.nextLine().trim();
             System.out.println("Kindly enter your last name:");
@@ -34,15 +33,18 @@ public class RewardService {
     }
 
     public void logIntoApp(){
-        try {
-            User usr = new User();
-            Scanner scn = new Scanner(System.in);
+        try(Scanner scn = new Scanner(System.in)) {
             System.out.println("Kindly enter your userName: ");
             String usrName = scn.nextLine().trim();
             System.out.println("Kindly enter your password");
             String passwd = scn.nextLine().trim();
 
-            usr.signIn(usrName, passwd);
+            user = users.stream()
+                    .filter(u -> u.userName.equals(usrName))
+                            .findFirst()
+                                    .orElseThrow(() -> new UserNotRegisteredException("User not found"));
+
+            user.signIn(usrName, passwd);
         }catch(UserNotRegisteredException | WrongPasswordException exc){
             System.out.println(exc.getMessage());
         }
