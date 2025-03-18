@@ -33,7 +33,8 @@ public class RewardService {
     }
 
     public void logIntoApp(){
-        try(Scanner scn = new Scanner(System.in)) {
+        try {
+            Scanner scn = new Scanner(System.in);
             System.out.println("Kindly enter your userName: ");
             String usrName = scn.nextLine().trim();
             System.out.println("Kindly enter your password");
@@ -63,8 +64,8 @@ public class RewardService {
             if(usr.id == id){
                 try{
                     amount_transacted = usr.transact();
-                } catch (UserNotRegisteredException | WrongPasswordException usr) {
-                    System.out.println(usr.getMessage());
+                } catch (UserNotRegisteredException | WrongPasswordException usrExc) {
+                    System.out.println(usrExc.getMessage());
                 }
             }
         }
@@ -74,15 +75,19 @@ public class RewardService {
     public static void main(String[] args) {
         RewardService rws = new RewardService();
 
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Kindly provide your name: ");
-        String name = scan.nextLine().trim();
+        rws.createUser();
+        rws.logIntoApp();
 
-        rws.createUser(name);
 
-        System.out.println(rws.checkUsers());
-
-        int amount = rws.check_amount_transacted(1);
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("Kindly provide your name: ");
+//        String name = scan.nextLine().trim();
+//
+//        rws.createUser(name);
+//
+//        System.out.println(rws.checkUsers());
+//
+//        int amount = rws.check_amount_transacted(1);
     }
 
     public Enum check_category(){
@@ -118,7 +123,7 @@ public class RewardService {
             int amount = check_amount_transacted(usr.id);
             if(amount >= 20000){
                 usr.convert_amount_to_points(amount);
-                int pointsEarned = usr.getPoints_earned();
+//                int pointsEarned = usr.getPoints_earned();
 
 
             } else {
@@ -127,7 +132,7 @@ public class RewardService {
         } else if (enVal.equals(Categories.GROCERY)) {
             int amount = check_amount_transacted(usr.id);
             if(amount < 10000){
-                usr
+//                usr
             }
 
         }
